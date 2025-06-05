@@ -37,9 +37,20 @@ class MainActivity : AppCompatActivity() {
 
         // 버튼 클릭 시 데이터 삽입 실행
         binding.insertBtn.setOnClickListener {
-            insertData()
-            Toast.makeText(this, "데이터가 저장되었습니다.", Toast.LENGTH_SHORT).show()
-            Log.v("DB Info","Data Save Successful!")
+            if(binding.titleText.text.isNotEmpty() && binding.contentText.text.isNotEmpty()){
+                insertData()
+                Toast.makeText(this, "데이터가 저장되었어요.", Toast.LENGTH_SHORT).show()
+                Log.v("DB Info","Data Save Successful!")
+            } else {
+                if(binding.titleText.text.isEmpty() && binding.contentText.text.isEmpty())
+                    Toast.makeText(this, "입력된 내용이 없어요", Toast.LENGTH_SHORT).show()
+                else if(binding.titleText.text.isEmpty())
+                    Toast.makeText(this, "제목은 필수 입력이에요", Toast.LENGTH_SHORT).show()
+                else if(binding.contentText.text.isEmpty())
+                    Toast.makeText(this, "내용은 필수 입력이에요.", Toast.LENGTH_SHORT).show()
+                Log.v("DB Info","Data Save Failed!")
+            }
+
         }
 
         // 초기 UI 설정
