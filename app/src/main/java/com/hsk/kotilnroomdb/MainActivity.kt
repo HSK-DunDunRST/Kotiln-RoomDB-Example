@@ -3,6 +3,7 @@ package com.hsk.kotilnroomdb
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
+import android.view.Gravity
 import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.widget.LinearLayout
@@ -117,10 +118,13 @@ class MainActivity : AppCompatActivity() {
                 // 데이터 표시를 위한 TextView 생성
                 val textTmp = TextView(this@MainActivity).apply {
                     text = "${insertData.title}\n${insertData.content}\n${insertData.date}"
-                    textSize = 24f
-                    layoutParams = LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.WRAP_CONTENT).apply {
+                    textSize = 14f
+                    gravity = Gravity.CENTER_VERTICAL
+                    setPadding(10, 30, 10, 30)
+                    minHeight = 200
+                    layoutParams = LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.MATCH_PARENT).apply {
                         weight = 0.8f
-                        setMargins(60, 5, 5, 10)
+                        setMargins(70, 5, 5, 10)
                     }
                 }
                 addLayout.addView(textTmp)
@@ -128,11 +132,11 @@ class MainActivity : AppCompatActivity() {
                 // 삭제 버튼 생성 및 설정
                 val deleteTmp = Button(this@MainActivity).apply {
                     text = "삭제" // 버튼에 표시될 텍스트
-                    textSize = 18f
+                    textSize = 14f
                     layoutParams = LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.MATCH_PARENT).apply {
                         weight = 0.2f
                     }
-                    setPadding(5, 5, 5, 5)
+                    setPadding(10, 10, 10, 10)
                     setOnClickListener {
                         // 데이터베이스에서 해당 데이터 삭제 및 레이아웃 제거
                         deleteData(insertData.id)
