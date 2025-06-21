@@ -40,16 +40,14 @@ A simple Android example project demonstrating how to use **Room Database** with
 ## Project Structure
 
 ```
-├── data/
+├── java/com/hsk/kotlinroomdb/
+│   ├── dao/
+│   │   ├── BaseDAO.kt
+│   │   └── DataDAO.kt
+│   ├── entity/
+│   │   └── DataEntity.kt
 │   ├── AppDatabase.kt
-│   ├── User.kt
-│   ├── UserDao.kt
-├── repository/
-│   └── UserRepository.kt
-├── viewmodel/
-│   └── UserViewModel.kt
-├── ui/
-│   └── MainActivity.kt
+└───└── MainActivity.kt
 ```
 
 ---
@@ -62,6 +60,6 @@ A simple Android example project demonstrating how to use **Room Database** with
 
 ---
 
-## 📜 License
+## License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
